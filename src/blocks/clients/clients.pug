@@ -1,0 +1,25 @@
+mixin clients(mods)
+  -
+    const baseName = 'clients'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .clients(class=allMods)&attributes(attributes)
+    +ui-p1('[С кем мы работаем]').clients__head-descr
+    +ui-h1('Наше взаимодействие гарантирует успешную реализацию проектов и довольство клиентов', 'clients')
+    .clients__count
+      .clients__count-num 10+
+      +ui-h2('Надежных партнеров, которые дополняют наши возможности и способствуют достижению выдающихся результатов')
+    .clients__slider
+      .swiper
+        .swiper-wrapper
+          -for(let i=0; i<7; i++)
+            .clients__item.swiper-slide
+              +ui-p1('LOGO компании')
+    block

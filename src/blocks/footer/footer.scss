@@ -1,0 +1,193 @@
+.footer {
+  color: $grey;
+  background: #000;
+  &__main {
+    padding: 85px 0 50px;
+    @include media-laptop {
+      padding: 70px 0 0;
+    }
+  }
+  &__foot {
+    padding: 18px 0;
+    background: #232323;
+    @include media-laptop {
+      margin-top: 45px;
+      padding: 0;
+      background: transparent;
+    }
+    @include media-mobile {
+      margin-top: 30px;
+    }
+  }
+  &__wrapper {
+    &--main {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      column-gap: 200px;
+      @include media-desktop {
+        column-gap: 100px;
+      }
+      @include media-laptop {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 45px;
+      }
+      @include media-mobile {
+        gap: 30px;
+      }
+    }
+    &--foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      @include media-laptop {
+        flex-direction: column-reverse;
+        gap: 0;
+      }
+    }
+  }
+  &__logo {
+    display: block;
+    width: 131px;
+    height: 156px;
+    margin-bottom: 20px;
+    @include media-laptop {
+      width: 92px;
+      height: 100px;
+    }
+    @include media-mobile {
+      margin-bottom: 10px;
+    }
+  }
+  &__copyright {
+    &--main {
+      margin-bottom: 40px;
+      @include media-mobile {
+        max-width: 200px;
+        margin-bottom: 30px;
+      }
+    }
+    &--secondary {
+      color: #848484;
+    }
+    &--deskt {
+      @include media-laptop {
+        display: none;
+      }
+    }
+    &--tablet {
+      display: none;
+      @include media-laptop {
+        display: block;
+        margin-top: 45px;
+      }
+      @include media-mobile {
+        margin-top: 30px;
+      }
+    }
+  }
+  &__contacts {
+    margin-bottom: 40px;
+    @include media-laptop {
+      margin-bottom: 0;
+    }
+  }
+  &__ui-p1 {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+      @include media-mobile {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 100px;
+    padding-top: 20px;
+    @include media-laptop {
+      gap: 30px;
+      padding-top: 0;
+    }
+    @include media-mobile {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    &-item {
+      &--d-rowspan2 {
+        grid-row: span 2;
+        @include media-mobile {
+          grid-row: unset;
+        }
+      }
+      &--mob-order-1 {
+        @include media-mobile {
+          order: 1;
+        }
+      }
+      &--mob-order-2 {
+        @include media-mobile {
+          order: 2;
+        }
+      }
+      &--mob-order-3 {
+        @include media-mobile {
+          order: 3;
+        }
+      }
+      &--mob-order-4 {
+        @include media-mobile {
+          order: 4;
+        }
+      }
+      &--mob-order-5 {
+        @include media-mobile {
+          order: 5;
+        }
+      }
+      &--mob-order-6 {
+        @include media-mobile {
+          order: 6;
+        }
+      }
+      &--mob-order-7 {
+        @include media-mobile {
+          order: 7;
+        }
+      }
+    }
+    &-head {
+      &:not(:last-child) {
+        margin-bottom: 26px;
+        @include media-mobile {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    &-li {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+        @include media-mobile {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  &__links {
+    display: flex;
+    gap: 80px;
+    @include media-mobile {
+      flex-direction: column-reverse;
+      gap: 10px;
+    }
+  }
+  &__made {
+    @include media-laptop {
+      margin: 30px calc(var(--inner-pd) * -1) 0;
+      padding: 18px var(--inner-pd);
+      background: #232323;
+      text-align: center;
+    }
+    @include media-mobile {
+      margin-top: 10px;
+    }
+  }
+}

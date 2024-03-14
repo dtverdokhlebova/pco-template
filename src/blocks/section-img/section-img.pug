@@ -1,0 +1,15 @@
+mixin section-img(img, mods)
+  -
+    const baseName = 'section-img'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .section-img(class=allMods)&attributes(attributes)
+    img(src=img, alt='')
+    block

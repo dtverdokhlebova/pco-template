@@ -1,0 +1,22 @@
+mixin projects-item(data, mods)
+  -
+    const baseName = 'projects-item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.projects-item(class=allMods href='#')&attributes(attributes)
+    .projects-item__pictures-wrap
+      .projects-item__img
+        +img-wrapper(data.img, '--animation')
+      +ui-button('Смотреть подробнее', 'projects-item, --light')
+    .projects-item__content
+      +ui-h2(data.h2, 'projects-item')
+      if data.p1
+        +ui-p1(data.p1, 'projects-item')(class=data.p1Class)
+    block

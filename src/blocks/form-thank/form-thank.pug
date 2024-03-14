@@ -1,0 +1,17 @@
+mixin form-thank(data, mods)
+  -
+    const baseName = 'form-thank'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .form-thank(class=allMods)&attributes(attributes)
+    .form-thank__wrapper
+      +ui-h2('Заявка успешно отправлена <br>мы скоро свяжемся с&nbsp;вами!', 'form-thank')
+      +ui-button('Отправить заявку еще', `${data.btnMods ? (data.btnMods + ', --size-xs')  : '--size-xs'}`)(onclick=data.onclick)
+    block

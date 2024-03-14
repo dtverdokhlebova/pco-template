@@ -1,0 +1,21 @@
+.mission {
+  &__ui-p1 {
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+  }
+  &__h1-lvl-1 {
+    display: block;
+    @include media-laptop {
+      display: inline;
+    }
+  }
+  &__h1-lvl-2 {
+    display: block;
+    margin-left: 34%;
+    @include media-laptop {
+      display: inline;
+      margin-left: 0;
+    }
+  }
+}

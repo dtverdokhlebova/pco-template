@@ -1,0 +1,130 @@
+.header-search {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  transition: $transition;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(17 17 17 / 0.8);
+    backdrop-filter: blur(2px);
+  }
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 706px;
+    padding: 36px;
+    background: $grey;
+    transform: translateX(101%);
+    transition: $transition;
+    @include media-tablet {
+      transform: translateX(-101%);
+      max-width: 100%;
+      padding: 22px var(--inner-pd);
+    }
+  }
+  &__form {
+    display: flex;
+    gap: 10px;
+    max-width: 510px;
+    margin-bottom: 36px;
+    @include media-tablet {
+      max-width: unset;
+      margin-bottom: 20px;
+      padding-right: 50px;
+    }
+  }
+  &__head {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-tablet {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  &__input {
+    flex: 1;
+    input {
+      width: 100%;
+      padding: 10px;
+      font: 400 14px/1.3 $font;
+      color: $black;
+      background: transparent;
+      border: 1px solid $black;
+      border-radius: 40px;
+      outline: none;
+      transition: $transition;
+      @include media-tablet {
+        padding: 7px 10px;
+      }
+    }
+  }
+  &__submit {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: $black;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    @include media-tablet {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: calc(100% + 20px);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: $grey;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    @include media-tablet {
+      top: 30px;
+      right: var(--inner-pd);
+      width: 20px;
+      height: 20px;
+      color: #dbdcde;
+    }
+  }
+  &__results {
+    overflow-y: auto;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+        @include media-tablet {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  &--active {
+    opacity: 1;
+    visibility: visible;
+    .header-search {
+      &__wrapper {
+        transform: translateX(0);
+      }
+    }
+  }
+}

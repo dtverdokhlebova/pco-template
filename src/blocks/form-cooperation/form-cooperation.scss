@@ -1,0 +1,46 @@
+.form-cooperation {
+  &__row {
+    &:not(:first-child) {
+      margin-top: 40px;
+      @include media-mobile {
+        margin-top: 30px;
+      }
+    }
+    &--foot {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      @include media-mobile {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+    }
+  }
+  &__ui-button {
+    min-width: 290px;
+    @include media-laptop {
+      min-width: 220px;
+    }
+    @include media-mobile {
+      min-width: min(220px, 53%);
+    }
+  }
+  &__agree {
+    color: #848484;
+  }
+  &--d-size-xs {
+    .form-cooperation {
+      &__row {
+        &:not(:first-child) {
+          margin-top: 30px;
+        }
+      }
+      &__ui-button {
+        min-width: 206px;
+        @include media-mobile {
+          min-width: min(220px, 53%);
+        }
+      }
+    }
+  }
+}

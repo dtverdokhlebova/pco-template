@@ -1,0 +1,16 @@
+.in-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 30px;
+  @include media-mobile {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  &__item {
+    display: grid;
+    gap: 20px;
+    @include media-mobile {
+      gap: 10px;
+    }
+  }
+}

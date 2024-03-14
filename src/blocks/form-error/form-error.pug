@@ -1,0 +1,14 @@
+mixin form-error(mods)
+  -
+    const baseName = 'form-error'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .form-error(class=allMods)&attributes(attributes) Это обязательное поле
+    block

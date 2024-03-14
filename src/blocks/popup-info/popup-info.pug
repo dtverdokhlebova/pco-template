@@ -1,0 +1,24 @@
+mixin popup-info(mods)
+  -
+    const baseName = 'popup-info'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .popup-info(class=allMods)&attributes(attributes)
+    .popup-info__head
+      +ui-h2('Юридическая информация', '--mob-h1')
+    .popup-info__main
+      +ui-p1('', '-p-mb-xs, --mob-h2')
+        p ИНН: 0000000
+        p КПП: 0000000
+        p ОГРН: 0000000
+        p Адрес: Адрес
+    .popup-info__foot
+      +ui-button('Закрыть', 'popup-info, --size-xs, --dark-bg, --m-w100')(onclick=`window.closePopup($(this).parents('.popup'))`)
+    block

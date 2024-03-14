@@ -1,0 +1,32 @@
+.catalog-filter {
+  padding: 40px 0;
+  @include media-mobile {
+    padding: 50px 0 40px;
+  }
+  &__ui-h2 {
+    margin-bottom: 30px;
+    @include media-mobile {
+      margin-bottom: 20px;
+    }
+  }
+  &__ul {
+    column-count: 3;
+    column-gap: 45px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    @include media-tablet {
+      column-count: 2;
+    }
+    @include media-custom(520px) {
+      column-count: unset;
+    }
+  }
+  &__li {
+    margin: 10px 0;
+    cursor: pointer;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.popup-info {
+  @include media-mobile {
+    text-align: center;
+  }
+  &__head {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &__main {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  &__ui-button {
+    min-width: 204px;
+    @include media-mobile {
+      min-width: unset;
+    }
+  }
+}

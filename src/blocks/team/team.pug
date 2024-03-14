@@ -1,0 +1,23 @@
+mixin team(mods)
+  -
+    const baseName = 'team'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .team(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        -for( let i=0; i<6; i++)
+          .team__item.swiper-slide
+            .team__img
+              +img-wrapper('img/team-img.jpg', '--animation')
+            .team__content
+              +ui-h2('Главный архитектор проекта', 'team')
+      +ui-swiper-pagination('team')
+    block

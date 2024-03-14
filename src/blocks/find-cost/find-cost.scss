@@ -1,0 +1,22 @@
+.find-cost {
+  display: grid;
+  grid-template-columns: 640px minmax(0, 1fr);
+  gap: 40px 100px;
+  @include media-laptop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  &__head {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+      @include media-mobile {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__img {
+    @include media-laptop {
+      order: -1;
+      margin: 0 calc(var(--inner-pd) * -1);
+    }
+  }
+}

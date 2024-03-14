@@ -1,0 +1,31 @@
+.who-we {
+  @include media-mobile {
+    margin: 0 calc(var(--inner-pd) * -1);
+    padding: 0 var(--inner-pd);
+    overflow: hidden;
+  }
+  .swiper {
+    @include media-mobile {
+      overflow: visible;
+    }
+  }
+  &__item {
+    height: auto;
+    @include media-mobile {
+      width: 388px;
+      max-width: 95%;
+    }
+  }
+  &__img {
+    position: relative;
+    margin-bottom: 20px;
+    @include media-mobile {
+      margin-bottom: 10px;
+    }
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: 57.5%;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+mixin catalog-filter(mods)
+  -
+    const baseName = 'catalog-filter'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .catalog-filter(class=allMods)&attributes(attributes)
+    .inner
+      +ui-h2('Выберите направление:', 'catalog-filter')
+      .catalog-filter__wrapper
+        ul.catalog-filter__ul
+          -for(let itemLi = 0; itemLi < 75; itemLi++)
+            li.catalog-filter__li.ui-p1
+              +ui-link('Название направления', '#')
+    block

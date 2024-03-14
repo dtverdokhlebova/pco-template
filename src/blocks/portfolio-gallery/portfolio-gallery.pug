@@ -1,0 +1,29 @@
+mixin portfolio-gallery(mods)
+  -
+    const baseName = 'portfolio-gallery'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const data =[
+      { img: 'img/portfolio-img-1.jpg' },
+      { img: 'img/portfolio-img-2.jpg' },
+      { img: 'img/portfolio-img-3.jpg' },
+      { img: 'img/portfolio-img-4.jpg' },
+      { img: 'img/portfolio-img-5.jpg' },
+    ]
+
+  .portfolio-gallery(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        each item in data
+          .portfolio-gallery__item.swiper-slide
+            img(src=item.img, alt='')
+      +ui-swiper-pagination('portfolio-gallery')
+    block

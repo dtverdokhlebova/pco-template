@@ -1,0 +1,63 @@
+.cooperation {
+  position: relative;
+  color: $grey;
+  background: $black;
+  overflow: hidden;
+  &__content {
+    width: 50%;
+    min-width: 700px;
+    padding: 100px 50px 100px 0;
+    @include media-laptop {
+      width: 100%;
+      min-width: unset;
+      padding: 60px 0 80px;
+    }
+    @include media-mobile {
+      padding: 40px 0 70px;
+    }
+  }
+  &__head {
+    &:not(:last-child) {
+      margin-bottom: 50px;
+      @include media-laptop {
+        margin-bottom: 40px;
+      }
+      @include media-mobile {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__ui-h1 {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &__form-cooperation {
+    max-width: 614px;
+    @include media-mobile {
+      max-width: unset;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - var(--inner-pd));
+    max-width: calc(100% - 700px - var(--inner-pd));
+    height: 100%;
+    @include media-laptop {
+      position: static;
+      width: auto;
+      max-width: unset;
+      margin: 0 calc(var(--inner-pd) * -1);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include media-laptop {
+        max-height: 460px;
+      }
+    }
+  }
+}

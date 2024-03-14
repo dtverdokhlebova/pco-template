@@ -1,0 +1,87 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'portfolio-inner'
+    const pageTitle = 'Портфолио - детальная'
+
+  -
+    const bannerData = {
+      items: [{
+        img: 'img/banner-img-portfolio-inner.jpg',
+        h1: 'Жилой микрорайон “Название”',
+      }]
+    }
+
+  -
+    const projectsData = {
+      type: 'slider',
+      itemMods: ', --bb',
+      items: [
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+      ]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +nav
+    +section('--animation')#section-about-the-project(data-section='О проекте')
+      .inner
+        +section-head('[О проекте]')
+          +ui-h1('Жилой микрорайон площадью 28,6га по адресу: Московская область, Балашихинский район, ул. Звездная', 'section-head')
+          +ui-h2('Цель проекта: Генеральное проектирование объекта, Функции технического заказчика', 'section-head')
+        +section-grid
+          +text
+            p
+              b Состав работ:
+              br
+              | Получение технических условий (электроснабжение, водоснабжение и водоотведение, ИТП);
+              br
+              | Разработка СТУ (специальных технических условий);
+              br
+              | Проведение инженерных изысканий:
+            ul
+              li технический отчет по результатам инженерногеодезических изысканий;
+              li технический отчет по результатам инженерногеологических изысканий;
+              li технический отчет по результатам инженерноэкологических изысканий;
+              li технический отчет по результатам инженерногидрометеологических изысканий;
+            | Составление Технического задания.
+            p
+              b Особенности:
+              br
+              | Площадь земельного участка: 24 446 м2
+              br
+              | Площадь застройки: 2 902 м2
+              br
+              | Площадь озеленения: 4 880 м2
+              br
+              | Площадь апарт отеля: 9 846 м2
+              br
+              | Этажность: 5 этажей
+              br
+              | Заказчик: ООО «АльянсГрупп»
+              br
+              | Адрес: МО, Красногорский район
+              br
+              | Площадь: 2902 м²
+              br
+              | Сумма: 14 700 000 ₽
+              br
+              | Срок: 180 к. д.
+          +section-grid-item('--d-order-1, --d-al-end').ui-t-none
+            +ui-button('Узнать цену проектирования', '--size-s, --t-w100, --dark-bg')(href='#')
+    +section('--pd0')#section-gallery(data-section='Галерея')
+      +portfolio
+      +section-box.ui-t-block
+        +ui-button('Узнать цену проектирования', '--w100, --size-xs, --dark-bg')(href='#')
+    +section#section-projects-others(data-section='Другие проекты')
+      .inner
+        +section-head('[Другие проекты]')
+          +ui-h1('Смотрите еще больше проектов', 'section-head')
+        +projects-list(projectsData)
+  +popup('', '--w100 popup__container--h100')#popup-portfolio-gallery
+    +portfolio-gallery

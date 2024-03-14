@@ -1,0 +1,47 @@
+.advantages {
+  --border-color: #{$borderDark};
+
+  display: grid;
+  grid-template-columns: calc(50% + 10px) calc(50% - 10px);
+  @include media-mobile {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  &__item {
+    margin-top: 30px;
+    padding-top: 30px;
+    border: solid var(--border-color);
+    border-width: 2px 0 0;
+    @include media-mobile {
+      margin-top: 0;
+      padding: 20px 0;
+    }
+    &:nth-child(-n+2) {
+      margin-top: 0;
+    }
+    &:nth-child(odd) {
+      padding-right: 66px;
+      @include media-laptop {
+        padding-right: 30px;
+      }
+      @include media-mobile {
+        padding-right: 0;
+      }
+    }
+    &:last-child {
+      @include media-mobile {
+        border-bottom-width: 2px;
+      }
+    }
+  }
+  &__ui-h2 {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-mobile {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &--light {
+    --border-color: #{$borderLight};
+  }
+}

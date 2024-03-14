@@ -1,0 +1,41 @@
+.awards {
+  @include media-laptop {
+    margin: 0 calc(var(--inner-pd) * -1);
+    padding: 0 var(--inner-pd);
+    overflow: hidden;
+  }
+  .swiper {
+    @include media-laptop {
+      overflow: visible;
+    }
+  }
+  &__item {
+    height: auto;
+    @include media-laptop {
+      max-width: calc((100% - 20px) / 3);
+      min-width: 388px;
+    }
+    @include media-mobile {
+      width: 388px;
+      max-width: 95%;
+      min-width: unset;
+    }
+  }
+  &__img {
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: 136.923%;
+    }
+  }
+  &__ui-swiper-pagination {
+    margin-top: 50px;
+    @include media-laptop {
+      margin-top: 30px;
+    }
+    @include media-mobile {
+      display: none;
+    }
+  }
+}

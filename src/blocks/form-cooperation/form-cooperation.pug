@@ -1,0 +1,24 @@
+mixin form-cooperation(mods)
+  -
+    const baseName = 'form-cooperation'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  form#form-cooperation.form-cooperation(class=allMods action='#')&attributes(attributes)
+    .form-cooperation__row
+      +ui-input('form-cooperation-name', '--dark')(placeholder='Имя' name='name')
+    .form-cooperation__row
+      +ui-input('form-cooperation-phone', '--dark')(data-mask='phone' name='phone')
+    .form-cooperation__row.form-cooperation__row--foot
+      +ui-button('Отправить', 'form-cooperation, --size-xs, --light-bg')
+      +ui-p3('Нажимая кнопку “Отправить” вы соглашаетесь с&nbsp;политикой конфиденциальности').form-cooperation__agree
+    br
+    br
+    .ui-pointer(onclick=`window.formThankShow('#form-thank-cooperation')`) Форма отправлена
+    block

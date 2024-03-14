@@ -1,0 +1,49 @@
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px 20px;
+  @include media-mobile {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+  &__ui-swiper-pagination {
+    margin-top: 50px;
+    @include media-laptop {
+      margin-top: 30px;
+    }
+    @include media-mobile {
+      display: none;
+    }
+  }
+  &--col3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 20px;
+    @include media-laptop {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include media-mobile {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 30px;
+    }
+  }
+  &--slider {
+    display: block;
+    @include media-mobile {
+      margin: 0 calc(var(--inner-pd) * -1);
+      padding: 0 var(--inner-pd);
+      overflow: hidden;
+    }
+    .swiper {
+      @include media-mobile {
+        overflow: visible;
+      }
+      &-slide {
+        height: auto;
+        @include media-mobile {
+          width: 388px;
+          max-width: 95%;
+        }
+      }
+    }
+  }
+}

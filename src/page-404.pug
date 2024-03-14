@@ -1,0 +1,11 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'page-404'
+    const pageTitle = '404'
+
+block content
+  main#main.main.main--pt-header
+    +section('--pd0, --animation')
+      +page-404

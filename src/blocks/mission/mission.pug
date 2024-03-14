@@ -1,0 +1,21 @@
+mixin mission(mods)
+  -
+    const baseName = 'mission'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .mission(class=allMods)&attributes(attributes)
+    +ui-p1('[Наша миссия]', 'mission')
+    +ui-h1('', 'mission')
+      | “Обеспечить клиентов
+      =' '
+      span.mission__h1-lvl-1 высококачественными и инновационными решениями, гарантируя успех
+      =' '
+      span.mission__h1-lvl-2 в реализации их строительных проектов.”
+    block

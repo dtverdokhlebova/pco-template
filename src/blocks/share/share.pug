@@ -1,0 +1,34 @@
+mixin share(mods)
+  -
+    const baseName = 'share'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const shareItems = [
+      { icon: 'share_vk', text: 'ВК' },
+      { icon: 'share_wa', text: 'WhatsApp' },
+      { icon: 'share_tg', text: 'Telegram' },
+    ]
+
+  .share(class=allMods)&attributes(attributes)
+    .share__wrapper
+      each item in shareItems
+        .share__item
+          button.share__button
+            .share__icon
+              img.share__icon-visible(src=`img/svgs/${item.icon}.svg`, alt='')
+            +ui-p3(item.text)
+      .share__item
+        button.share__button(onclick='window.shareButtonCopy(this)' data-copy-value='copy value')
+          .share__icon
+            img.share__icon-visible(src='img/svgs/share_link.svg', alt='')
+            img.share__icon-hidden(src='img/svgs/share_link_done.svg', alt='')
+          +ui-p3('Копировать')
+    block

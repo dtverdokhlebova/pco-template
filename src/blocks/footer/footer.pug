@@ -1,0 +1,96 @@
+-
+  let footerMenu = [
+    {
+      mods: 'footer__menu-item--mob-order-1',
+      head: 'Главная',
+    },
+    {
+      mods: 'footer__menu-item--d-rowspan2 footer__menu-item--mob-order-2',
+      head: 'Объекты проектирования',
+      menu: [
+        { text: 'Жилые здания' },
+        { text: 'Общественные здания' },
+        { text: 'Промышленные и складские объекты' },
+        { text: 'Сельскохозяйственные комплексы' },
+        { text: 'Линейные объекты' },
+      ]
+    },
+    {
+      mods: 'footer__menu-item--mob-order-4',
+      head: 'Кто мы',
+      menu: [
+        { text: 'Преимущества' },
+        { text: 'Портфолио' },
+        { text: 'Документы' },
+      ]
+    },
+    {
+      mods: 'footer__menu-item--mob-order-3',
+      head: 'Что мы предлагаем',
+      menu: [
+        { text: 'Проектирование нового строительства' },
+        { text: 'Проектирование реконструкций' },
+        { text: 'Проектирование капитального ремонта' },
+        { text: 'Выполнение функций генерального проектировщика' },
+      ]
+    },
+    {
+      mods: 'footer__menu-item--mob-order-5',
+      head: 'Работать с нами',
+    },
+    {
+      mods: 'footer__menu-item--mob-order-6',
+      head: 'Новости',
+    },
+    {
+      mods: 'footer__menu-item--mob-order-7',
+      head: 'Контакты',
+    },
+  ]
+
+-
+  let footerLinks = [
+    'Политика конфиденциальности',
+    'Положения',
+    'Условия',
+  ]
+
+.footer.section.section--pd0.section--animation
+  .footer__main
+    .inner
+      .footer__wrapper.footer__wrapper--main
+        .footer__col
+          a.footer__logo(href='/')
+            +svg('logo_footer')
+          +ui-p3('© 2017—2024 «Название» - архитектурное проектирование').footer__copyright.footer__copyright--main
+          .footer__contacts
+            +ui-p1('г. Воронеж, ул. Сакко и Ванцетти, д. 63', 'footer')
+            +ui-p1('', 'footer')
+              +ui-link('+7 (000) 000-00-00', 'tel:+70000000000')
+            +ui-p1('', 'footer')
+              +ui-link('mail@rso-pc.ru', 'mailto:mail@rso-pc.ru')
+          .footer__copyright.footer__copyright--secondary.footer__copyright--deskt
+            +ui-p4('')
+              | Все права защищены. Сайт, а также материалы, опубликованные на страницах данного сайта, являются объектом прав интеллектуальной собственности ООО «название» (ИНН ). Полное или частичное использование материалов сайта без разрешения правообладателя является нарушением его исключительного права.
+        .footer__menu
+          each item in footerMenu
+            .footer__menu-item(class=item.mods)
+              +ui-h2('').footer__menu-head
+                +ui-link(item.head, '#')
+              if item.menu
+                .footer__menu-ul
+                  each li in item.menu
+                    +ui-p1('').footer__menu-li
+                      +ui-link(li.text, '#')
+  .footer__foot
+    .inner
+      .footer__wrapper.footer__wrapper--foot
+        +ui-p3('Разработка сайтов ').footer__made
+          +ui-link('“Генерация”', 'https://promo01.ru/')(target='_blank')
+        .footer__copyright.footer__copyright--secondary.footer__copyright--tablet
+          +ui-p4('')
+            | Все права защищены. Сайт, а также материалы, опубликованные на страницах данного сайта, являются объектом прав интеллектуальной собственности ООО «название» (ИНН ). Полное или частичное использование материалов сайта без разрешения правообладателя является нарушением его исключительного права.
+        .footer__links
+          each item in footerLinks
+            +ui-p3('').footer__links-item
+              +ui-link(item, '#')

@@ -1,0 +1,22 @@
+mixin awards(mods)
+  -
+    const baseName = 'awards'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .awards(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        -for(let i=0; i<5; i++)
+          .awards__item.swiper-slide
+            .awards__img
+              //- img.awards__img(src='img/awards_img.jpg', alt='')
+              +img-wrapper('img/awards_img.jpg', '--animation')
+      +ui-swiper-pagination('awards')
+    block

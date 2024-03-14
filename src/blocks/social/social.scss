@@ -1,0 +1,17 @@
+.social {
+  display: flex;
+  gap: 10px;
+}
+.social-item {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  @include media-laptop {
+    width: 54px;
+    height: 54px;
+  }
+  @include media-mobile {
+    width: 48px;
+    height: 48px;
+  }
+}

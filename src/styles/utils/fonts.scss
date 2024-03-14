@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Arimo';
+  src:
+    url('../fonts/Arimo-Regular.woff2') format('woff2'),
+    url('../fonts/Arimo-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Arimo';
+  src:
+    url('../fonts/Arimo-Bold.woff2') format('woff2'),
+    url('../fonts/Arimo-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src:
+    url('../fonts/Helvetica.woff2') format('woff2'),
+    url('../fonts/Helvetica.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

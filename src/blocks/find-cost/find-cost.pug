@@ -1,0 +1,21 @@
+mixin find-cost(formData, mods, modsFormThank)
+  -
+    const baseName = 'find-cost'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .find-cost(class=allMods)&attributes(attributes)
+    .find-cost__content.ui-relative
+      .find-cost__head
+        +ui-h2('Узнать стоимость проектирования', 'find-cost, --mob-h1')
+      +form-cost(formData)
+      +form-thank({ onclick: `window.formThankHide('#form-cost', $(this))`, btnMods: formData.submitMods }, modsFormThank)#form-thank-find-cost
+    .find-cost__img
+      img(src='img/find_cost_img.jpg', alt='')
+    block

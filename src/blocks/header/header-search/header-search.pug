@@ -1,0 +1,30 @@
+mixin header-search(mods)
+  -
+    const baseName = 'header-search'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .header-search(class=allMods)
+    .header-search__wrapper
+      button.header-search__close
+        +svg('icon_cross')
+      .header-search__form
+        .header-search__input
+          input#header-search-input(type='text' name='header-search')
+        button.header-search__submit
+          +svg('icon_search')
+      .header-search__results
+        .header-search__inner
+          .header-search__head
+            +ui-h2('Результаты поиска:')
+          ul.header-search__list
+            -for(let i=0; i<20; i++)
+              li
+                +ui-p1('')
+                  +ui-link('Проектирование гостиниц и отелей', '#')

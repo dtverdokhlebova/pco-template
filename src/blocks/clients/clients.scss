@@ -1,0 +1,92 @@
+.clients {
+  display: grid;
+  grid-template-columns: calc(26.25% + 100px) minmax(0, 1fr);
+  column-gap: 20px;
+  @include media-laptop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  &__ui-h1 {
+    grid-row: span 2;
+    @include media-laptop {
+      grid-row: unset;
+    }
+    &:not(:last-child) {
+      margin-bottom: 50px;
+      @include media-laptop {
+        margin-bottom: 30px;
+      }
+      @include media-mobile {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__head-descr {
+    margin-top: 14px;
+    @include media-laptop {
+      margin-top: 0;
+    }
+    &:not(:last-child) {
+      margin-bottom: 28px;
+      @include media-laptop {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__count {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    grid-row: span 2;
+    @include media-laptop {
+      position: static;
+      grid-row: unset;
+      margin-bottom: 30px;
+    }
+    &-num {
+      font: 700 155px/1 $fontHlv;
+      @include media-laptop {
+        font-size: 110px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 25px;
+        @include media-mobile {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  &__slider {
+    .swiper {
+      @include media-laptop {
+        margin: 0 calc(var(--inner-pd) * -1);
+        padding: 0 var(--inner-pd);
+      }
+      &-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        @include media-laptop {
+          display: flex;
+          gap: 0;
+        }
+      }
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 146px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(0deg, rgb(0 0 0 / 0.06)), #f9f9f9;
+    @include media-laptop {
+      width: 350px;
+      height: 100px;
+    }
+    @include media-mobile {
+      width: 270px;
+      height: 75px;
+    }
+  }
+}

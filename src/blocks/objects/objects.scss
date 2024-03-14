@@ -1,0 +1,109 @@
+.objects {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  @include media-custom(1600px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @include media-mobile {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  &__item {
+    position: relative;
+    display: grid;
+    grid-template-areas: 'main';
+    grid-template-columns: minmax(0, 1fr);
+    grid-column: span 2;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    @include media-mobile {
+      grid-column: unset;
+    }
+    &:first-child {
+      grid-column: span 4;
+      @include media-mobile {
+        grid-column: unset;
+      }
+    }
+    @include media-hover {
+      .objects {
+        &__img {
+          &::before {
+            opacity: 1;
+          }
+          &::after {
+            opacity: 0;
+          }
+        }
+        &__content {
+          transform: translateY(0);
+        }
+        &__main {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__pictures-wrap {
+    position: relative;
+    grid-area: main;
+    &::before {
+      content: '';
+      display: block;
+      padding-top: 57.54%;
+      @include media-custom(1600px) {
+        height: 480px;
+        padding-top: 0;
+      }
+    }
+  }
+  &__img {
+    position: absolute;
+    inset: 0;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      transition: $transition;
+    }
+    &::before {
+      top: 0;
+      background: rgba(33 33 33 / 0.81);
+      opacity: 0;
+    }
+    &::after {
+      top: 51%;
+      background: linear-gradient(180deg, rgb(7 7 7 / 0) 0%, #000 100%);
+    }
+  }
+  &__content {
+    position: relative;
+    z-index: 2;
+    transform: translateY(calc(var(--objects-main-height, 62px) + 30px));
+    grid-area: main;
+    display: grid;
+    align-content: end;
+    place-items: start;
+    gap: 30px;
+    padding: 50px 26px 50px 40px;
+    color: $grey;
+    transition: $transition;
+    @include media-laptop {
+      padding: 30px 20px;
+    }
+    @include media-mobile {
+      padding: 20px;
+    }
+  }
+  &__main {
+    opacity: 0;
+    transition: $transition;
+  }
+}

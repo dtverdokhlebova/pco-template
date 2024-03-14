@@ -1,0 +1,70 @@
+.form-cost {
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    @include media-mobile {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px 18px;
+    }
+  }
+  &__item {
+    &--d-colspan-2 {
+      grid-column: span 2;
+    }
+    &--mob-w-100 {
+      @include media-mobile {
+        grid-column: 1/-1;
+      }
+    }
+    &--mob-order-1 {
+      @include media-mobile {
+        order: 1;
+      }
+    }
+    &--mob-order-2 {
+      @include media-mobile {
+        order: 2;
+      }
+    }
+    &--mob-order-3 {
+      @include media-mobile {
+        order: 3;
+      }
+    }
+    &--mob-order-4 {
+      @include media-mobile {
+        order: 4;
+      }
+    }
+    &--mob-order-5 {
+      @include media-mobile {
+        order: 5;
+      }
+    }
+  }
+  &__foot {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 30px;
+    @include media-mobile {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+  &__ui-drop-file {
+    @include media-mobile {
+      width: fit-content;
+    }
+  }
+  &__ui-button {
+    @include media-mobile {
+      min-width: min(220px, 53%);
+    }
+  }
+  &__agree {
+    max-width: 310px;
+    color: #848484;
+  }
+}

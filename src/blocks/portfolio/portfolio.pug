@@ -1,0 +1,29 @@
+mixin portfolio(mods)
+  -
+    const baseName = 'portfolio'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const data =[
+      { img: 'img/portfolio-img-1.jpg' },
+      { img: 'img/portfolio-img-2.jpg' },
+      { img: 'img/portfolio-img-3.jpg' },
+      { img: 'img/portfolio-img-4.jpg' },
+      { img: 'img/portfolio-img-5.jpg' },
+    ]
+
+  .portfolio(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        each item in data
+          a.portfolio__item.swiper-slide(href='#' onclick=`window.openPopup('#popup-portfolio-gallery'); window.slideTo('.portfolio-gallery .swiper', $(this).index())`)
+            .portfolio__img
+              +img-wrapper(item.img, 'portfolio, --animation, --animation-relative')
+    block

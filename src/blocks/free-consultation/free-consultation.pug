@@ -1,0 +1,28 @@
+mixin free-consultation(mods)
+  -
+    const baseName = 'free-consultation'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const formData = {
+      inputsMods: '--dark',
+      submitMods: '--light-bg'
+    }
+
+  .free-consultation(class=allMods)&attributes(attributes)
+    .inner
+      .free-consultation__wrapper
+        .free-consultation__content
+          .free-consultation__head
+            +ui-h2('Узнайте стоимость проектирования с&nbsp;бесплатной консультацией специалиста прямо сейчас', 'free-consultation')
+          +form-cost(formData, 'free-consultation')
+        .free-consultation__img
+          img(src='img/free-consultation-img.jpg', alt='')
+    block

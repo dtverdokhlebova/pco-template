@@ -1,0 +1,14 @@
+mixin ui-link(text, href, mods)
+  -
+    const baseName = 'ui-link'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.ui-link(class=allMods href=href)&attributes(attributes) !{text}
+    block

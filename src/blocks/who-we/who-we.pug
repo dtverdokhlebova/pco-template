@@ -1,0 +1,22 @@
+mixin who-we(data, mods)
+  -
+    const baseName = 'who-we'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .who-we(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        each item in data
+          .who-we__item.swiper-slide
+            .who-we__img
+              +img-wrapper(item.img, '--animation')
+            .who-we__content
+              +ui-p1(item.p1, 'who-we').ui-grey
+    block

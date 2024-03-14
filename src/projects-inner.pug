@@ -1,0 +1,44 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'projects-inner'
+    const pageTitle = 'Проектирование нового строительства'
+
+  -
+    const bannerData = {
+      items: [{
+        imgMods: '--x-20-bottom',
+        img: 'img/banner-img-projects-inner.jpg',
+        h1: 'Проектирование нового строительства',
+      }]
+    }
+
+  -
+    const projectsData = {
+      itemMods: ', --bb',
+      items: [
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов' },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов' },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов' },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов' },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов' },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов' },
+      ]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +section
+      .inner
+        +section-box
+          .ui-select.ui-select--max-w.ui-select--bg-white.ui-select--no-events.ui-pointer(onclick=`window.openPopup('#popup-catalog-filter')`)
+            select
+              option(selected) Все направления
+        +section-box
+          +projects-list(projectsData, '--col3')
+        +section-box
+          +pagination
+    +popup('', '--w100 popup__container--h100')#popup-catalog-filter
+      +catalog-filter

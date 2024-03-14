@@ -1,0 +1,29 @@
+// fonts
+$font: 'Arimo', 'Arial', sans-serif;
+$fontHlv: 'Helvetica', 'Arial', sans-serif;
+
+// colors
+:root {
+  --white: #fff;
+  --black: #333;
+  --grey: #f8fafc;
+  --grey2: #9c9c9c;
+  --grey5: #5d5d5d;
+  --error: #872929;
+}
+
+$white: var(--white);
+$grey: var(--grey);
+$grey2: var(--grey2);
+$grey5: var(--grey5);
+$black: var(--black);
+$error: var(--error);
+$borderDark: #dcdedf;
+$borderLight: #4f4f4f;
+$transition: 0.3s;
+
+// media
+$mediaWidthDesktop: 1560px;
+$mediaWidthLaptop: 1259px;
+$mediaWidthTablet: 979px;
+$mediaWidthMobile: 767px;

@@ -1,0 +1,27 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'news'
+    const pageTitle = 'Новости'
+
+  -
+    const bannerData = {
+      items: [{
+        imgMods: '--mob-x-30',
+        img: 'img/banner-img-news.jpg',
+        h1: 'Новости',
+      }]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +section
+      .inner
+        +section-box
+          +ui-select('--max-w, --bg-white', 'Сортировка по умолчанию', 'Сначала Новые', 'Сначала старые')
+        +section-box
+          +news-list
+        +section-box
+          +pagination

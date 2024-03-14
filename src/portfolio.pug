@@ -1,0 +1,36 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'portfolio'
+    const pageTitle = 'Портфолио'
+
+  -
+    const bannerData = {
+      items: [{
+        img: 'img/banner-img-portfolio.jpg',
+        h1: 'Портфолио',
+      }]
+    }
+
+  -
+    const projectsData = {
+      itemMods: ', --bb',
+      items: [
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+      ]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +section
+      .inner
+        +section-head('[Реализованные объекты]')
+          +ui-h1('Наши выполненные проекты', 'section-head')
+        +projects-list(projectsData)
+        +section-box
+          +ui-button('Показать еще <span>12</span> проектов', '--w100')(href='#')

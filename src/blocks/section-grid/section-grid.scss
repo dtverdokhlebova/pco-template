@@ -1,0 +1,50 @@
+.section-grid {
+  display: grid;
+  grid-template-columns: 26.25% minmax(0, 1fr);
+  gap: 120px;
+  @include media-laptop {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 45px;
+  }
+  @include media-mobile {
+    gap: 30px;
+  }
+  &--text-aside {
+    grid-template-columns: minmax(0, 1fr) 520px;
+    gap: 20px;
+    @include media-laptop {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 45px;
+    }
+    @include media-mobile {
+      gap: 30px;
+    }
+  }
+  &--col-1 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+.section-grid-item {
+  &--d-order-1 {
+    order: -1;
+    @include media-laptop {
+      order: unset;
+    }
+  }
+  &--d-al-end {
+    align-self: self-end;
+    @include media-laptop {
+      align-self: unset;
+    }
+  }
+  &--d-sticky {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    @include media-laptop {
+      position: static;
+    }
+  }
+}
+

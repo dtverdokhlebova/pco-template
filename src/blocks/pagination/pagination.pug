@@ -1,0 +1,18 @@
+mixin pagination(mods)
+  -
+    const baseName = 'pagination'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .pagination(class=allMods)&attributes(attributes)
+    ul.pagination__list
+      each item, index in [1, 2, 3, 4]
+        li.pagination__item
+          +ui-button(item, `--border, --circle ${index === 0 ? ', --dark-bg, --no-events' : ''}`)(href='#')
+    +ui-button('Показать еще <span>12</span> проектов', 'pagination, --border')(href='#')

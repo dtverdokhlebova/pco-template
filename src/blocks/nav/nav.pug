@@ -1,0 +1,37 @@
+mixin nav(mods)
+  -
+    const baseName = 'nav'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .nav(class=allMods)&attributes(attributes)
+    .inner
+      .nav__wrapper
+        .nav__select
+          .nav__select-descr Навигация по странице:
+          .nav__select-main
+            .nav__select-head
+              .nav__select-label Что мы делаем
+              .nav__select-arrow
+                +svg('icon_arrow_down')
+            .nav__select-dropdown
+        .nav__actions
+          +ui-button('Заказать звонок', 'nav, --size-xxxs')(href='#')
+          .nav__link
+            button.nav__link-button.nav__link-button--hover-decor(data-nav-open-share='')
+              .nav__link-icon
+                +svg('icon_share')
+              +ui-p3('Поделиться').nav__link-text
+          .nav__link
+            a.nav__link-button(href='#main')
+              .nav__link-icon
+                +svg('icon_push_up')
+              +ui-p3('Наверх').nav__link-text
+        +share('nav')
+    block

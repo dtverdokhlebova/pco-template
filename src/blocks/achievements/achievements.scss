@@ -1,0 +1,23 @@
+.achievements {
+  &__item {
+    padding-top: 30px;
+    border-top: 2px solid $borderLight;
+    @include media-mobile {
+      padding-top: 20px;
+    }
+    &:not(:first-child) {
+      margin-top: 30px;
+      @include media-mobile {
+        margin-top: 20px;
+      }
+    }
+  }
+  &__ui-h2 {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-mobile {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

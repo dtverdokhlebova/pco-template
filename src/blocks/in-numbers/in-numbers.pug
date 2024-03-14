@@ -1,0 +1,28 @@
+mixin in-numbers(mods)
+  -
+    const baseName = 'in-numbers'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const data =[
+      { value: '80', h2: 'Довольных клиентов' },
+      { value: '152', h2: 'Завершенных проекта' },
+      { value: '697', valueDescr: 'м<sup>2</sup>', h2: 'Реализованных объектов' },
+    ]
+
+  .in-numbers(class=allMods)&attributes(attributes)
+    each item in data
+      .in-numbers__item
+        +ui-h1('')
+          span(data-value=item.value) &nbsp;
+          if item.valueDescr
+            | !{item.valueDescr}
+        +ui-h2(item.h2)
+    block

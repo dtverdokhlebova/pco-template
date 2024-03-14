@@ -1,0 +1,52 @@
+mixin contacts(data, mods)
+  -
+    const baseName = 'contacts'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const itemsData =[
+      { class: 'contacts__col--mob-order-1 contacts__col--mob-w100', h2: 'Адрес:', p1: 'г. Воронеж, ул. Сакко и Ванцетти, д. 63', button: 'Юр. информация', buttonClass: 'contacts__info ui-button--mob-text', buttonOnclick: `window.openPopup('#popup-legal-info')` },
+      { class: 'contacts__col--mob-order-3', h2: 'Телефон:', p1Link: '+7 (000) 000-00-00', p1Href: 'tel:+70000000000', button: 'Заказать звонок', buttonClass: 'contacts__request-call', buttonHref: '#', },
+      { class: 'contacts__col--mob-order-4 contacts__col--mob-flex', h2: 'Связаться:', p1Link: 'mail@rso-pc.ru', p1Href: 'mainlo:mail@rso-pc.ru', social: true, },
+      { class: 'contacts__col--mob-order-2 contacts__col--mob-w100', h2: 'Режим работы:',
+        mode: [
+          'Пн-Пт: с 09:00-21:00',
+          'Сб: с 11:00-16:00',
+          'Вс: выходной',
+        ]
+      },
+    ]
+
+  -
+    const socialData =[
+      { icon: 'icon_whatsapp_fill' },
+      { icon: 'icon_telegram_fill' },
+    ]
+
+  .contacts(class=allMods)&attributes(attributes)
+    -const buttonMods = (data && data.buttonMods) ? data.buttonMods : ''
+    each item in itemsData
+      .contacts__col(class=item.class)
+        .contacts__content
+          +ui-h2(item.h2, 'contacts')
+          +ui-p1('', 'contacts, --p-mb-xs')
+            if item.mode
+              .contacts__mode
+                each pItem in item.mode
+                  .contacts__mode-item !{pItem}
+            if item.p1
+              | !{item.p1}
+            if item.p1Link
+              +ui-link(item.p1Link, item.p1Href)
+        if item.button
+          +ui-button(item.button, `contacts, --size-xs ${buttonMods}`)(class=item.buttonClass href=item.buttonHref onclick=item.buttonOnclick)
+        if item.social
+          +social(socialData)
+    block

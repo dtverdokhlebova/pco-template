@@ -1,0 +1,20 @@
+mixin news-item(mods)
+  -
+    const baseName = 'news-item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a.news-item(class=allMods href='#')&attributes(attributes)
+    .news-item__img
+      +img-wrapper('img/news-item-img.jpg', 'news-item')
+    .news-item__content
+      +ui-h2('Открытие нового отделения', 'news-item')
+      +ui-p1('Новое отделение "РСО-Проектный Центр" в центре города обеспечит клиентам легкий доступ к услугам компании и расширит ее присутствие для более удобного взаимодействия', 'news-item').ui-grey2
+      +ui-p3('Дата публикации: 11.08.2023', 'news-item')
+    block

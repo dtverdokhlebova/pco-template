@@ -1,0 +1,71 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'projects-inner-2'
+    const pageTitle = 'Проектирование магазинов'
+
+  -
+    const bannerData = {
+      items: [{
+        imgMods: '--mob-x-80',
+        img: 'img/banner-img-projects-inner-2.jpg',
+        h1: 'Проектирование магазинов',
+      }]
+    }
+
+  -
+    const projectsData1 = {
+      type: 'slider',
+      itemMods: ', --bb, --light',
+      paginationMods: ', --light',
+      items: [
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов', },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов', },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов', },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов', },
+        { img: 'img/projects_img.jpg', h2: 'Проектирование магазинов', },
+      ]
+    }
+
+  -
+    const projectsData2 = {
+      type: 'slider',
+      itemMods: ', --bb',
+      items: [
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+        { img: 'img/projects_img.jpg', h2: 'Разработка проектной и рабочей документации для строительства', p1: 'Год реализации 2023', p1Class: 'ui-grey2' },
+      ]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +nav
+    +section('--animation')#section-stages-of-work(data-section='Этапы работы')
+      .inner
+        +section-head('[Этапы работы]')
+          +ui-h1('Что входит в работы по проектированию магазина', 'section-head')
+          +ui-p1('', 'section-head')
+            | Обследование объекта выполнения работ. ПЗ — Пояснительная записка. ПЗУ- Схема планировочной организации земельного участка. КР — Конструктивные и объемно-планировочные решения.
+            br
+            | ЭС — система электроснабжения. НЭС — система наружного электроосвещения. ОВК – система отоплении, вентиляции и кондиционирования воздуха. НВК – наружный водопровод и канализация. АПС – автоматическая пожарная сигнализация. ТМ – тепломеханические решения. ТХ – технология производства. ПОС- Проект организации строительства. ООС- Охрана окружающей среды. ПБ — пожарная безопасность. ОДИ – обеспечение доступа инвалидам. ТБЭ – требования по безопасной эксплуатации объекта.
+    +section('--pd0, --animation')
+      +free-consultation
+    +section#section-team(data-section='Команда')
+      .inner
+        +section-head('[Команда]')
+          +ui-h1('Над проектированием магазина работают', 'section-head')
+        +team
+    +section('--bg')#section-other-services(data-section='Другие услуги по проектированию')
+      .inner
+        +section-head('[Другие услуги по проектированию]')
+          +ui-h1('Смотрите больше объектов проектирования', 'section-head')
+        +projects-list(projectsData1, '--slides-per-view-3')(data-d-slides-per-view='3')
+    +section#section-realized-objects(data-section='Реализованные объекты')
+      .inner
+        +section-head('[Реализованные объекты]')
+          +ui-h1('Наши выполненные проекты', 'section-head')
+        +projects-list(projectsData2)

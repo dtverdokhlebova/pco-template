@@ -1,0 +1,75 @@
+.projects-item {
+  --border-color: #{$borderDark};
+
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  @include media-hover {
+    .projects-item {
+      &__img {
+        &::after {
+          opacity: 1;
+        }
+      }
+      &__ui-button {
+        opacity: 1;
+      }
+    }
+  }
+  &__pictures-wrap {
+    position: relative;
+  }
+  &__img {
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: 74.56%;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgb(0 0 0 / 0.75);
+      opacity: 0;
+      transition: $transition;
+    }
+  }
+  &__ui-button {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1;
+    opacity: 0;
+    transition: $transition;
+  }
+  &__ui-h2 {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      @include media-mobile {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__content {
+    padding-top: 20px;
+    @include media-mobile {
+      padding-top: 10px;
+    }
+  }
+  &--bb {
+    padding-bottom: 30px;
+    border-bottom: solid var(--border-color);
+    border-width: 0 0 2px;
+    @include media-laptop {
+      padding-bottom: 20px;
+    }
+    @include media-mobile {
+      padding-bottom: 10px;
+    }
+  }
+  &--light {
+    --border-color: #{$borderLight};
+  }
+}

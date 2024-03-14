@@ -1,0 +1,39 @@
+mixin form-cost(formData, mods)
+  -
+    const baseName = 'form-cost'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  form#form-cost.form-cost(class=allMods action='#')&attributes(attributes)
+    -const inputsMods = (formData && formData.inputsMods) ? formData.inputsMods : ''
+    -const submitMods = (formData && formData.submitMods) ? formData.submitMods : ''
+    .form-cost__fields
+      .form-cost__item.form-cost__item--mob-w-100.form-cost__item--mob-order-1
+        +ui-select(inputsMods, '', 'Название 1', 'Название 2', 'Название 3', 'Название 4', 'Название 2')(data-placeholder='Назначение задания')
+      .form-cost__item.form-cost__item--mob-w-100.form-cost__item--mob-order-1
+        +ui-select(inputsMods, '', 'Название 1', 'Название 2')(data-placeholder='Вид проектирования')
+      .form-cost__item.form-cost__item--mob-w-100.form-cost__item--mob-order-1
+        +ui-input('form-cost-square', inputsMods)(placeholder='Площадь объекта в м2' name='square')
+      .form-cost__item.form-cost__item--mob-order-2
+        +ui-input('form-cost-phone', `${inputsMods ? (inputsMods + ', --error') : '--error'}`)(data-mask='phone' name='phone')
+      .form-cost__item.form-cost__item--mob-w-100.form-cost__item--mob-order-1
+        +ui-input('form-cost-name', inputsMods)(placeholder='Имя' name='name')
+      .form-cost__item.form-cost__item--mob-order-3
+        +ui-input('form-cost-email', inputsMods)(placeholder='E-mail' type='email' name='email')
+      .form-cost__item.form-cost__item--d-colspan-2.form-cost__item--mob-w-100.form-cost__item--mob-order-5
+        +ui-textarea('form-cost-message', `${inputsMods ? (inputsMods + ', --error') : '--error'}`)(placeholder='Сообщение' name='message')
+      .form-cost__item.form-cost__item--mob-w-100.form-cost__item--mob-order-4
+        +ui-drop-file('Прикрепить файл', `${inputsMods ? ('form-cost,' + {inputsMods}) : 'form-cost'}`)(data-max-file-size='1000000')#myDropzone
+    .form-cost__foot
+      +ui-button('Отправить', `form-cost, ${submitMods}, --size-xs`)
+      +ui-p3('Нажимая кнопку “Отправить” вы соглашаетесь с&nbsp;политикой конфиденциальности').form-cost__agree
+    br
+    br
+    .ui-pointer(onclick=`window.formThankShow('#form-thank-find-cost')`) Форма отправлена
+    block

@@ -1,0 +1,26 @@
+.form-thank {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 10px;
+  text-align: center;
+  background: $grey;
+  &__ui-h2 {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+      @include media-mobile {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &--dark {
+    color: $grey;
+    background: $black;
+  }
+  &--active {
+    display: flex;
+  }
+}

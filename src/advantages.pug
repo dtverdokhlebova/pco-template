@@ -1,0 +1,32 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'advantages'
+    const pageTitle = 'Преимущества'
+
+  -
+    const bannerData = {
+      items: [{
+        img: 'img/banner-img-advantages.jpg',
+        h1: 'Преимущества',
+      }]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +section
+      .inner
+        +section-head('[Компания в цифрах]', '--block', false)
+        +in-numbers
+    +section('--bg, --animation')
+      .inner
+        +section-head('[Наши достижения]')
+          +ui-h1('Наши достижения за время работы', 'section-head')
+          +ui-p1('', 'section-head')
+            | За годы своей деятельности компания "РСО-Проектный Центр" достигла значительных результатов и внесла значительный вклад в различные сферы проектирования и строительства. Наши достижения говорят сами за себя.
+        +section-grid
+          +achievements
+          +section-grid-item('--d-order-1, --d-al-end')
+            +ui-button('Узнать цену проектирования', '--size-xs, --t-w100, --light-bg')(href='#')

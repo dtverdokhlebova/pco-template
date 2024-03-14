@@ -1,0 +1,86 @@
+-
+  const headerMenu =[
+    {
+      head: {
+        name: 'Кто? Мы', link: '#',
+      },
+      main: [
+        { name: 'Преимущества', link: '#', },
+        { name: 'Реализованные объекты', link: '#', },
+        { name: 'Документы', link: '#', },
+      ]
+    },
+    {
+      head: {
+        name: 'Что мы делаем', link: '#',
+      },
+      main: [
+        { name: 'Проектирование нового строительства', link: '#', },
+        { name: 'Проектирование реконструкций', link: '#', },
+        { name: 'Проектирование капитального ремонта', link: '#', },
+        { name: 'Выполнение функций генерального проектироващика', link: '#', },
+      ]
+    },
+    {
+      head: {
+        name: 'Объекты проектирования', link: '#',
+      },
+      main: [
+        { name: 'Промышленные и складские объекты', link: '#', },
+        { name: 'Жилые здания', link: '#', },
+        { name: 'Общественные здания', link: '#', },
+        { name: 'Сельскохозяйственные комплексы', link: '#', },
+        { name: 'Линейные объекты', link: '#', },
+      ]
+    },
+    {
+      head: {
+        name: 'Работать с нами', link: '#',
+      },
+    },
+    {
+      head: {
+        name: 'Новости', link: '#',
+      },
+    },
+    {
+      head: {
+        name: 'Контакты', link: '#',
+      },
+    },
+  ]
+
++page-progress
+header.header
+  .inner
+    .header__wrapper
+      a.header__logo(href='/')
+        +svg('header_logo')
+      .header__burger
+        .header__burger-wrapper
+          .header__menu
+            each item in headerMenu
+              .header__menu-item
+                +ui-p3('', '--d-h1-mob').header__menu-head
+                  a(href=item.head.link) !{item.head.name}
+                  if item.main
+                    button.header__menu-arrow
+                      +svg('icon_arrow_down')
+                if item.main
+                  .header__menu-dropdown
+                    .header__menu-main
+                      each link in item.main
+                        +ui-p3('', '--d-h2-mob').header__menu-link
+                          +ui-link(link.name, link.link)
+          +header__actions.header__actions--burger
+      +header__actions.header__actions--deskt
+      button.header__search-open
+        +svg('icon_search')
+      .header__burger-button
+        span
+        span
+        span
+        span
+        span
+        span
+      +header-search

@@ -1,0 +1,119 @@
+:root {
+  --inner-pd: 160px;
+  @include media-custom(1920px) {
+    --inner-pd: 20px;
+  }
+  @include media-mobile {
+    --inner-pd: 10px;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+html {
+  box-sizing: border-box;
+  line-height: 1;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+}
+img {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  image-rendering: -webkit-optimize-contrast;
+}
+input,
+textarea,
+button {
+  font: inherit;
+  appearance: none;
+}
+a {
+  transition: ease 0.2s;
+}
+sup {
+  font-size: 0.6em;
+}
+
+// defaults
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: $font;
+  line-height: 1;
+  color: $black;
+  background: $grey;
+}
+.inner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--inner-pd);
+  @include media-custom(1920px) {
+    max-width: 1640px;
+  }
+}
+.main {
+  flex: 1 0;
+  &--pt-header {
+    padding-top: var(--header-height);
+  }
+}
+.ui {
+  &-relative {
+    position: relative;
+  }
+  &-t-none {
+    @include media-laptop {
+      display: none;
+    }
+  }
+  &-t-block {
+    display: none;
+    @include media-laptop {
+      display: block;
+    }
+  }
+  &-nowrap {
+    white-space: nowrap;
+  }
+  &-grey {
+    color: $grey;
+  }
+  &-grey2 {
+    color: $grey2;
+  }
+  &-pointer {
+    cursor: pointer;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin link-underline {
+  background-image: linear-gradient(transparent calc(100% - 1px), currentcolor 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size $transition;
+}
+@mixin link-underline-hover {
+  background-size: 100% 100%;
+}

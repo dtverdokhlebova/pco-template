@@ -1,0 +1,23 @@
+mixin objects(data, mods)
+  -
+    const baseName = 'objects'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .objects(class=allMods)&attributes(attributes)
+    each item in data.items
+      a.objects__item(href='#')
+        .objects__pictures-wrap
+          .objects__img
+            +img-wrapper(item.img, '--animation')
+        .objects__content
+          +ui-h2(item.h2, 'objects')
+          .objects__main
+            +ui-button('Смотреть подробнее', 'objects, --no-events, --size-s, --light')
+    block

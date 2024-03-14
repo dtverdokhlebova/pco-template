@@ -1,0 +1,85 @@
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 50px;
+  @include media-laptop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 40px;
+  }
+  @include media-mobile {
+    position: relative;
+    grid-template-columns: auto 1fr;
+    padding-bottom: 92px;
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    @include media-mobile {
+      gap: 0;
+    }
+    &--mob-order-1 {
+      @include media-mobile {
+        order: 1;
+      }
+    }
+    &--mob-order-2 {
+      @include media-mobile {
+        order: 2;
+      }
+    }
+    &--mob-order-3 {
+      @include media-mobile {
+        order: 3;
+      }
+    }
+    &--mob-order-4 {
+      @include media-mobile {
+        order: 4;
+      }
+    }
+    &--mob-w100 {
+      @include media-mobile {
+        grid-column: 1/-1;
+      }
+    }
+    &--mob-flex {
+      @include media-mobile {
+        align-items: center;
+        flex-flow: row wrap;
+        gap: 20px 30px;
+      }
+    }
+  }
+  &__ui-h2 {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+      @include media-mobile {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__mode {
+    display: grid;
+    gap: 7px;
+    @include media-mobile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+  &__request-call {
+    @include media-mobile {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+  &__info {
+    @include media-mobile {
+      margin-top: 30px;
+    }
+  }
+}

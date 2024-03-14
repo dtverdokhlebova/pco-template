@@ -1,0 +1,31 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'projects'
+    const pageTitle = 'Что мы делаем'
+
+  -
+    const bannerData = {
+      items: [{
+        img: 'img/banner-img-projects.jpg',
+        h1: 'Что мы делаем',
+      }]
+    }
+
+  -
+    const projectsData = {
+      items: [
+        { img: 'img/projects_img.jpg', h2: 'Выполнение функций генерального проектироващика' },
+        { img: 'img/projects_img.jpg', h2: 'Выполнение функций генерального проектироващика' },
+        { img: 'img/projects_img.jpg', h2: 'Выполнение функций генерального проектироващика' },
+        { img: 'img/projects_img.jpg', h2: 'Выполнение функций генерального проектироващика' },
+      ]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +section
+      .inner
+        +projects-list(projectsData)

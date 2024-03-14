@@ -1,0 +1,23 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'documents'
+    const pageTitle = 'Документы'
+
+  -
+    const bannerData= {
+      items: [{
+        img: 'img/banner-img-documents.jpg',
+        h1: 'Документы',
+      }]
+    }
+
+block content
+  main#main.main
+    +banner(bannerData)
+    +section
+      .inner
+        +documents
+        +section-box
+          +pagination

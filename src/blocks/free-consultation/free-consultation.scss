@@ -1,0 +1,62 @@
+.free-consultation {
+  position: relative;
+  color: $grey;
+  background: $black;
+  overflow: hidden;
+  &__content {
+    width: 50%;
+    min-width: 700px;
+    padding: 100px 0;
+    @include media-laptop {
+      width: 100%;
+      min-width: unset;
+      padding: 80px 0 60px;
+    }
+    @include media-mobile {
+      padding: 70px 0 50px;
+    }
+  }
+  &__head {
+    padding-right: 60px;
+    @include media-laptop {
+      padding-right: 0;
+    }
+    &:not(:last-child) {
+      margin-bottom: 50px;
+      @include media-laptop {
+        margin-bottom: 40px;
+      }
+      @include media-mobile {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__form-cost {
+    max-width: 600px;
+    @include media-laptop {
+      max-width: unset;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - var(--inner-pd));
+    max-width: calc(100% - 700px - var(--inner-pd));
+    height: 100%;
+    @include media-laptop {
+      position: static;
+      width: auto;
+      max-width: unset;
+      margin: 0 calc(var(--inner-pd) * -1);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include media-laptop {
+        max-height: 460px;
+      }
+    }
+  }
+}

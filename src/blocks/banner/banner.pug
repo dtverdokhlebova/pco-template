@@ -1,0 +1,36 @@
+mixin banner(data, mods)
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .banner(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        each item in data.items
+          .banner__item.swiper-slide
+            .banner__img(class=(item.imgMods ? `banner__img${item.imgMods}` : ''))
+              img(src=item.img, alt='')
+            .banner__wrapper
+              .inner
+                .banner__content
+                  .banner__head
+                    if item.label
+                      +ui-p1(item.label).banner__label(class=item.labelMods)
+                    +ui-h1(item.h1, `banner ${item.h1Mods ? item.h1Mods : ''}`)
+                    if item.p1
+                      +ui-p1(item.p1, 'banner')
+      .banner__pagination.inner
+        +ui-swiper-pagination-nums('banner, --mob-dark')
+    if data.buttonDown
+      .banner__down
+        .inner
+          a.banner__down-link(href='#section-what-are-we-doing')
+            +svg('banner__down')
+    block

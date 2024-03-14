@@ -1,0 +1,9 @@
+.ui-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  @include link-underline;
+  @include media-hover {
+    @include link-underline-hover;
+  }
+}

@@ -1,0 +1,17 @@
+mixin social(data, mods)
+  -
+    const baseName = 'social'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .social(class=allMods)&attributes(attributes)
+    each item in data
+      a.social-item(href='#')
+        +svg(item.icon)
+    block

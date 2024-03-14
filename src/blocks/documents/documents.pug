@@ -1,0 +1,24 @@
+mixin documents(mods)
+  -
+    const baseName = 'documents'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .documents(class=allMods)&attributes(attributes)
+    -for( let i=0; i<6; i++)
+      .documents__item
+        .documents__img
+          +img-wrapper('img/documents_img.jpg', '--animation')
+        .documents__content
+          +ui-h2('Название документа', 'documents')
+          a.documents__download(href='#')
+            sapn.documents__download-text Скачать PDF
+            sapn.documents__download-icon
+              +svg('icon_download')
+    block

@@ -1,0 +1,29 @@
+mixin section-grid(mods)
+  -
+    const baseName = 'section-grid'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .section-grid(class=allMods)&attributes(attributes)
+    block
+
+mixin section-grid-item(mods)
+  -
+    const baseName = 'section-grid-item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .section-grid-item(class=allMods)&attributes(attributes)
+    block

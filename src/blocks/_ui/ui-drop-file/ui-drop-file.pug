@@ -1,0 +1,17 @@
+mixin ui-drop-file(text, mods)
+  -
+    const baseName = 'ui-drop-file'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .ui-drop-file(class=allMods data-max-file-size='1000000')&attributes(attributes)
+    .ui-drop-file__button
+      .ui-drop-file__label !{text}
+      +svg('icon_paperclip')
+    block

@@ -1,0 +1,39 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'index'
+    const pageTitle = 'Index'
+
+  -
+    const pages =[
+      { text: 'Главная', href: 'main.html' },
+      { text: 'О компании', href: 'about.html' },
+      { text: 'Портфолио', href: 'portfolio.html' },
+      { text: 'Портфолио - детальная', href: 'portfolio-inner.html' },
+      { text: 'Документы', href: 'documents.html' },
+      { text: 'Преимущества', href: 'advantages.html' },
+      { text: 'Проекты (Что мы делаем )', href: 'projects.html' },
+      { text: 'Проекты - детальная 1 (Проектирование нового строительства)', href: 'projects-inner.html' },
+      { text: 'Проекты - детальная 2 (Проектирование магазинов )', href: 'projects-inner-2.html' },
+      { text: 'Объекты', href: 'objects.html' },
+      { text: 'Объекты - детальная', href: 'objects-inner.html' },
+      { text: 'Новости', href: 'news.html' },
+      { text: 'Новости - детальная', href: 'news-inner.html' },
+      { text: 'Приглашаем к сотрудничеству', href: 'cooperation.html' },
+      { text: 'Контакты', href: 'contacts.html' },
+      { text: '404', href: 'page-404.html' },
+    ]
+
+block content
+  main#main.main.main--pt-header
+    +breadcrumbs
+      +breadcrumbs-item('Название страницы', '#')
+      +breadcrumbs-item('Название страницы где находишься')
+    +section
+      .inner
+        +ui-p1
+          each page in pages
+            +ui-link(page.text, page.href)
+            br
+            br

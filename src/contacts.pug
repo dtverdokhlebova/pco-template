@@ -1,0 +1,28 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageName = 'contacts'
+    const pageTitle = 'Наши контакты'
+
+  -
+    const formData = {
+      submitMods: '--dark-bg'
+    }
+
+block content
+  main#main.main.main--pt-header
+    +section('--animation')
+      .inner
+        +section-head('[Где мы находимся?]', '--main-flex')
+          +ui-h1('Наши контакты', 'section-head')
+          +ui-button('Получить коммерческое предложение', '--size-xs, --dark-bg, --t-hidden')(href='#')
+        +contacts
+        +section('--mt-xxxs, --pd0').ui-t-block
+          +ui-button('Получить коммерческое предложение', '--w100, --size-xs, --dark-bg')(href='#')
+        +section-box('--d-bt')
+          +find-cost(formData)
+    +section('--pd0, --animation')
+      +location-map
+  +popup('', '--s')#popup-legal-info
+    +popup-info

@@ -1,0 +1,9 @@
+mixin header__actions
+  .header__actions&attributes(attributes)
+    .header__contacts
+      +ui-p2('', '--mob-h2').header__contacts-item
+        +ui-link('+7 (000) 000-00-00', 'tel:+70000000000')
+      +ui-p2('', '--mob-h2').header__contacts-item
+        +ui-link('test@test.ru', 'mailto:test@test.ru')
+    +ui-button('Заказать звонок', '--size-xxs')(href='#')
+    +ui-button('Узнать цену проектирования', '--size-xxs, --dark-bg')(href='#')
