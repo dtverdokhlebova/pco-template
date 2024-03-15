@@ -25,5 +25,5 @@ mixin portfolio(mods)
         each item in data
           a.portfolio__item.swiper-slide(href='#' onclick=`window.openPopup('#popup-portfolio-gallery'); window.slideTo('.portfolio-gallery .swiper', $(this).index())`)
             .portfolio__img
-              +img-wrapper(item.img, 'portfolio, --animation, --animation-relative')
+              +img-wrapper(item.img, 'portfolio, --animation, --animation-d-t-relative')
     block

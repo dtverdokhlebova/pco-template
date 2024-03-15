@@ -115,6 +115,10 @@
   &--light {
     color: $grey;
     border-color: $grey;
+    @include media-hover {
+      color: $black;
+      background: $grey;
+    }
   }
   &--light-bg {
     background: $grey;

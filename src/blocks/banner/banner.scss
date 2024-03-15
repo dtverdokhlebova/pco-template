@@ -170,10 +170,11 @@
     transform: translateX(-50%);
     z-index: 2;
     @include media-mobile {
-      bottom: 64px;
+      bottom: 84px;
     }
   }
   &--main {
+    --banner-mob-wrapper-pb: 160px;
     @include media-mobile {
       min-height: 100vh;
     }
@@ -181,7 +182,9 @@
       &__img {
         @include media-mobile {
           position: static;
-          height: 500px;
+          height: calc(var(--viewport-height, 100vh) - var(--banner-max-height-heads) - var(--banner-mob-wrapper-pb) - 10px);
+          max-height: 500px;
+          min-height: 320px;
         }
         &::before {
           opacity: 1;
