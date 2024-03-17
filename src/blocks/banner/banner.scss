@@ -176,13 +176,13 @@
   &--main {
     --banner-mob-wrapper-pb: 160px;
     @include media-mobile {
-      min-height: 100vh;
+      min-height: var(--banner-height, 100dvh);
     }
     .banner {
       &__img {
         @include media-mobile {
           position: static;
-          height: calc(var(--viewport-height, 100vh) - var(--banner-max-height-heads) - var(--banner-mob-wrapper-pb) - 10px);
+          height: calc(var(--banner-height, 100vh) - var(--banner-max-height-heads) - var(--banner-mob-wrapper-pb) - 10px);
           max-height: 500px;
           min-height: 320px;
         }

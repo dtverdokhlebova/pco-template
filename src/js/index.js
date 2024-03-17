@@ -200,7 +200,6 @@ function awards() {
 function banner() {
   const blocks = document.querySelectorAll('.banner')
   if (blocks.length > 0) {
-    const viewportHeight = document.documentElement.clientHeight
     for (const block of blocks) {
       const slider = block.querySelector('.swiper')
       const slideHeads = block.querySelectorAll('.banner__head')
@@ -228,7 +227,7 @@ function banner() {
           init: () => {
             if (slideHeads.length > 1) {
               bannerHeadsCalcHeight(block, slideHeads)
-              block.style.setProperty('--viewport-height', `${viewportHeight}px`)
+              block.style.setProperty('--banner-height', window.getComputedStyle(block).getPropertyValue('min-height'))
             }
           },
           autoplayTimeLeft(swiper, time, progress) {
@@ -241,7 +240,6 @@ function banner() {
       window.addEventListener('resize', function () {
         if (slideHeads.length > 1) {
           bannerHeadsCalcHeight(block, slideHeads)
-          block.style.setProperty('--viewport-height', `${viewportHeight}px`)
         }
       })
     }
